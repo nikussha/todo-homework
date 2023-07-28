@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Roboto&display=swap');
+
+
+body{
+    font-family: 'Manrope', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
