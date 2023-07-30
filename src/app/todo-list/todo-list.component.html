@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm">
+      <div class="card">
+        <div class="card-header">Todos</div>
+        <div class="card-body">
+          <p *ngIf="!initialTodos.length" class="text-danger">Input Empty</p>
+
+          <ul class="ul-list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let todo of initialTodos; let i = index"
+            >
+              <p>{{ i + 1 }}-{{ todo.name }}</p>
+              <div
+                class="btn-group btn-group-sm"
+                role="group"
+                aria-label="Basic example"
+              >
+                <button
+                  class="btn btn-sm btn-success"
+                  (click)="todoStateChange(todo)"
+                >
+                  >
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteTodo(todo)"
+                >
+                  X
+                </button>
+              </div>
+              <button
+                class="btn btn-difficulty"
+                [ngClass]="generateColor(todo)"
+              >
+                {{ todo.difficulty }}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm">
+      <div class="card">
+        <div class="card-header">In-Progress</div>
+        <div class="card-body">
+          <p *ngIf="!todosInProgress.length" class="text-danger">Input Empty</p>
+          <ul class="ul-list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let todo of todosInProgress; let i = index"
+            >
+              <p>{{ i + 1 }}-{{ todo.name }}</p>
+              <div
+                class="btn-group btn-group-sm"
+                role="group"
+                aria-label="Basic example"
+              >
+                <button
+                  class="btn btn-sm btn-primary"
+                  (click)="changeStateToUndone(todo)"
+                >
+                  <
+                </button>
+                <button
+                  class="btn btn-sm btn-success"
+                  (click)="todoStateChange(todo)"
+                >
+                  >
+                </button>
+              </div>
+              <button
+                class="btn btn-difficulty"
+                [ngClass]="generateColor(todo)"
+              >
+                {{ todo.difficulty }}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm">
+      <div class="card">
+        <div class="card-header">Done</div>
+        <div class="card-body">
+          <p *ngIf="!completedTodos.length" class="text-danger">Input Empty</p>
+
+          <ul class="ul-list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let todo of completedTodos; let i = index"
+            >
+              <p>{{ i + 1 }}-{{ todo.name }}</p>
+              <button
+                class="btn btn-sm btn-primary"
+                (click)="todoStateChange(todo)"
+              >
+                <
+              </button>
+              <button
+                class="btn btn-difficulty"
+                [ngClass]="generateColor(todo)"
+              >
+                {{ todo.difficulty }}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

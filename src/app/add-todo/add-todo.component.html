@@ -1,0 +1,21 @@
+<div class="container">
+  <section class="addTodo row my-2 align-items-center">
+    <div class="col-2">
+      <input [(ngModel)]="formdata" type="text" class="form-control" />
+    </div>
+    <div class="col-1">
+      <select
+        [(ngModel)]="difficulty"
+        class="form-select px-2"
+        aria-label="Default select example"
+      >
+        <option selected value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div class="col">
+      <button (click)="addTodo()" class="btn btn-primary">Add</button>
+    </div>
+  </section>
+</div>
